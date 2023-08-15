@@ -285,3 +285,9 @@ Got a GET request on url /users
 Got a POST request on url /auth/login 
 Got a GET request on url /users 
 Got a GET request on url /users 
+Got a GET request on url /users 
+Got a GET request on url /users 
+Got a POST request on url /auth/login 
+Got a GET request on url /users 
+Got a GET request on url /users 
+Got a GET request on url /users 
