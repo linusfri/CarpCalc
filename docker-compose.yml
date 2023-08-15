@@ -1,0 +1,25 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/app
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_DATABASE=gooption
+      - MYSQL_ROOT_PASSWORD=/run/secrets/db_password
+    ports:
+      - '33006:3306'
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
+    driver: local
+secrets:
+   db_password:
+     file: ./secrets/db_password.txt
