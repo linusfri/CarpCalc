@@ -45,7 +45,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetUsers(w http.ResponseWriter, r *http.Request) {
-	var users []userModel.User
+	var users []userModel.Name
 
 	c, err := db.Connect()
 
@@ -54,7 +54,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	c.Gorm.Find(&users)
+	c.Gorm.Model(userModel.User{}).Select("user_name").Find(&users)
 
 	res, err := json.Marshal(&users)
 	if err != nil {

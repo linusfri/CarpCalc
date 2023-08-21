@@ -13,7 +13,7 @@ services:
     restart: always
     environment:
       - MYSQL_DATABASE=gooption
-      - MYSQL_ROOT_PASSWORD=/run/secrets/db_password
+      - MYSQL_ROOT_PASSWORD="${DB_PW}"
     ports:
       - '33006:3306'
     volumes:

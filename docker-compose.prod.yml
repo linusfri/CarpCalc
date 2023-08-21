@@ -1,0 +1,28 @@
+services:
+  app:
+    image: ghcr.io/linusfri/carpcalc-ghcr:1.0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - app:/app
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_DATABASE=gooption
+      - MYSQL_ROOT_PASSWORD=${DB_PW}
+    ports:
+      - '33006:3306'
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
+    driver: local
+  app:
+    driver: local
+secrets:
+   db_password:
+     file: ./secrets/db_password.txt

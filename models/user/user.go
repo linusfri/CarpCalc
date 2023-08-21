@@ -13,6 +13,10 @@ type User struct {
 	Password string `gorm:"not null"`
 }
 
+type Name struct {
+	UserName string
+}
+
 func (user *User) SayFuck() {
 	fmt.Println("Fuck")
 }
